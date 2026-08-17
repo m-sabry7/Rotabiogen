@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotabiogen | Technical Achievements</title>
+    
+    <!-- Prevent Auto-Translation -->
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-Language" content="ar" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --brand-purple: #8b5cf6;
+            --brand-orange: #f59e0b;
+            --accent-cyan: #06b6d4;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --glass: rgba(30, 41, 59, 0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        .bg-animation {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: var(--glass); border: 1px solid var(--brand-purple);
+            color: var(--text-light); padding: 8px 15px; border-radius: 8px;
+            cursor: pointer; backdrop-filter: blur(10px); font-weight: 700;
+            transition: all 0.3s; font-family: 'Cairo', sans-serif;
+        }
+        .lang-switch:hover { background: var(--brand-purple); transform: translateY(-2px); }
+        html[lang="en"] .lang-switch { right: auto; left: 20px; }
+
+        /* Language Visibility */
+        html[lang="ar"] .en { display: none; }
+        html[lang="en"] .ar { display: none; }
+
+        /* Header & Profile Card */
+        header { text-align: center; padding: 60px 0 20px; }
+
+        .logo {
+            width: 160px; margin-bottom: 40px;
+            filter: drop-shadow(0 10px 25px rgba(139, 92, 246, 0.4));
+            transition: transform 0.5s;
+        }
+        .logo:hover { transform: scale(1.05); }
+
+        .profile-card {
+            background: var(--glass); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
+            padding: 40px; max-width: 800px; margin: 0 auto 40px;
+            display: flex; align-items: center; gap: 30px;
+            transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 100%; height: 4px; background: linear-gradient(to left, var(--brand-purple), var(--brand-orange));
+        }
+        html[lang="en"] .profile-card::before { background: linear-gradient(to right, var(--brand-purple), var(--brand-orange)); }
+
+        .profile-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(139, 92, 246, 0.15); }
+
+        .profile-img {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--brand-purple), var(--brand-orange));
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3); border: 4px solid var(--bg-primary); overflow: hidden;
+        }
+        .profile-img img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; transition: transform 0.5s; }
+        .profile-img:hover img { transform: scale(1.1); }
+
+        .profile-info { text-align: right; flex-grow: 1; }
+        html[lang="en"] .profile-info { text-align: left; }
+
+        .profile-name {
+            font-size: 2rem; font-weight: 900;
+            background: linear-gradient(to left, #ffffff, var(--brand-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 5px;
+        }
+        html[lang="en"] .profile-name { background: linear-gradient(to right, #ffffff, var(--brand-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .profile-title {
+            color: var(--brand-orange); font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
+        }
+
+        .contact-links { display: flex; flex-wrap: wrap; gap: 15px; }
+        .contact-item {
+            display: flex; align-items: center; gap: 6px; color: var(--text-gray);
+            font-size: 0.9rem; text-decoration: none; transition: color 0.3s;
+        }
+        .contact-item i { color: var(--brand-purple); }
+        .contact-item:hover { color: var(--text-light); }
+
+        .portfolio-main-title {
+            font-size: 2.5rem; font-weight: 900; text-align: center;
+            background: linear-gradient(to left, #ffffff, var(--accent-cyan));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px;
+        }
+        html[lang="en"] .portfolio-main-title { background: linear-gradient(to right, #ffffff, var(--accent-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .portfolio-subtitle { text-align: center; font-size: 1rem; color: var(--text-gray); max-width: 700px; margin: 0 auto 60px; }
+
+        /* Phase 1: Inherited State */
+        .phase-section { margin-bottom: 80px; }
+        .section-title {
+            font-size: 2rem; font-weight: 800; margin-bottom: 20px; text-align: center;
+            display: flex; align-items: center; justify-content: center; gap: 15px;
+        }
+        .section-desc {
+            text-align: center; color: var(--text-gray); max-width: 800px;
+            margin: 0 auto 40px; font-size: 1.05rem;
+        }
+
+        .danger-zone .section-title span { color: var(--accent-red); }
+        .danger-zone .section-desc { border-right: 3px solid var(--accent-red); padding-right: 15px; }
+        html[lang="en"] .danger-zone .section-desc { border-right: none; border-left: 3px solid var(--accent-red); padding-right: 0; padding-left: 15px; }
+
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .issue-item {
+            background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 10px;
+            font-size: 0.95rem; transition: all 0.3s;
+        }
+        .issue-item i { color: var(--accent-red); font-size: 1.2rem; flex-shrink: 0; }
+        .issue-item:hover { background: rgba(239, 68, 68, 0.1); transform: translateX(-5px); }
+        html[lang="en"] .issue-item:hover { transform: translateX(5px); }
+
+        /* Phase 2: Timeline Projects */
+        .timeline { position: relative; padding: 40px 0; }
+        .timeline::before {
+            content: ''; position: absolute; top: 0; right: 50%; width: 2px; height: 100%;
+            background: linear-gradient(to bottom, var(--brand-purple), var(--brand-orange)); transform: translateX(50%);
+        }
+        html[lang="en"] .timeline::before { right: auto; left: 50%; transform: translateX(-50%); }
+
+        .timeline-item { position: relative; margin-bottom: 60px; width: 50%; }
+        .timeline-item:nth-child(odd) { padding-left: 40px; margin-right: auto; }
+        .timeline-item:nth-child(even) { padding-right: 40px; margin-left: auto; }
+        html[lang="en"] .timeline-item:nth-child(odd) { padding-left: 0; padding-right: 40px; margin-right: 0; margin-left: auto; }
+        html[lang="en"] .timeline-item:nth-child(even) { padding-right: 0; padding-left: 40px; margin-left: 0; margin-right: auto; }
+
+        .timeline-dot {
+            position: absolute; top: 20px; width: 20px; height: 20px; background: var(--bg-primary);
+            border: 4px solid var(--brand-purple); border-radius: 50%; z-index: 1; box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        }
+        .timeline-item:nth-child(odd) .timeline-dot { left: -10px; right: auto; }
+        .timeline-item:nth-child(even) .timeline-dot { right: -10px; left: auto; }
+        html[lang="en"] .timeline-item:nth-child(odd) .timeline-dot { right: -10px; left: auto; }
+        html[lang="en"] .timeline-item:nth-child(even) .timeline-dot { left: -10px; right: auto; }
+
+        .project-card {
+            background: var(--glass); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px; padding: 30px; transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .project-card::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 4px;
+            background: linear-gradient(to left, var(--brand-purple), var(--brand-orange));
+        }
+        html[lang="en"] .project-card::before { background: linear-gradient(to right, var(--brand-purple), var(--brand-orange)); }
+        .project-card:hover { border-color: var(--brand-purple); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15); transform: translateY(-5px); }
+
+        .project-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .project-icon {
+            width: 50px; height: 50px; background: rgba(139, 92, 246, 0.1); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; color: var(--brand-purple); font-size: 1.5rem;
+        }
+        .project-title h3 { font-size: 1rem; color: var(--brand-orange); font-weight: 700; }
+        .project-title h2 { font-size: 1.3rem; font-weight: 800; }
+
+        .project-list { list-style: none; margin-bottom: 20px; }
+        .project-list li { position: relative; padding-right: 20px; margin-bottom: 8px; color: var(--text-gray); }
+        .project-list li::before { content: '▪'; position: absolute; right: 0; color: var(--brand-purple); }
+        html[lang="en"] .project-list li { padding-right: 0; padding-left: 20px; }
+        html[lang="en"] .project-list li::before { right: auto; left: 0; }
+
+        .result-box {
+            background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px; padding: 15px; display: flex; align-items: center; gap: 10px;
+        }
+        .result-box i { color: var(--accent-green); font-size: 1.2rem; }
+        .result-box p { color: var(--accent-green); font-weight: 600; font-size: 0.95rem; }
+
+        .sub-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .sub-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 15px; }
+        .sub-card h4 { color: var(--brand-orange); margin-bottom: 10px; display:flex; align-items:center; gap:8px; }
+
+        /* Phase 3: Current & Future State */
+        .success-zone .section-title span { color: var(--accent-green); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+
+        .stat-card {
+            background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px; padding: 30px; text-align: center; transition: transform 0.3s, border-color 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); border-color: var(--brand-purple); }
+        .stat-number {
+            font-size: 3rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--brand-purple), var(--brand-orange));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat-text { color: var(--text-gray); font-size: 1rem; font-weight: 600; }
+
+        .ongoing-dev {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(245, 158, 11, 0.1));
+            border: 1px solid var(--brand-purple); border-radius: 16px; padding: 30px; text-align: center;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1); margin-bottom: 40px;
+        }
+        .ongoing-dev h3 { font-size: 1.5rem; color: var(--brand-orange); margin-bottom: 15px; }
+        .ongoing-dev p { color: var(--text-gray); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
+
+        .continuous-section {
+            background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--brand-orange);
+            border-radius: 16px; padding: 40px; position: relative; overflow: hidden;
+        }
+        .continuous-section::before {
+            content: ''; position: absolute; bottom: 0; right: 0; width: 100%; height: 4px;
+            background: linear-gradient(to left, var(--brand-orange), var(--accent-green));
+        }
+        html[lang="en"] .continuous-section::before { background: linear-gradient(to right, var(--brand-orange), var(--accent-green)); }
+        
+        .ci-title { display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.8rem; font-weight: 800; color: var(--brand-orange); margin-bottom: 30px; }
+        .ci-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .ci-card { background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 12px; padding: 20px; transition: all 0.3s; }
+        .ci-card:hover { transform: translateY(-5px); background: rgba(245, 158, 11, 0.1); border-color: var(--brand-orange); }
+        .ci-card h4 { display: flex; align-items: center; gap: 10px; color: var(--brand-orange); margin-bottom: 10px; font-size: 1.1rem; }
+        .ci-card p { color: var(--text-gray); font-size: 0.95rem; }
+
+        footer { text-align: center; padding: 40px 0; color: var(--text-gray); font-size: 0.9rem; }
+
+        /* Responsive - Fix Mobile Centering for Both Languages */
+        @media (max-width: 768px) {
+            .profile-card { flex-direction: column; text-align: center; }
+            .profile-info, html[lang="en"] .profile-info { text-align: center; }
+            .profile-title { justify-content: center; }
+            .contact-links { justify-content: center; }
+            .portfolio-main-title { font-size: 2rem; }
+            .timeline::before { right: 20px; left: auto; transform: none; }
+            .timeline-item { width: 100%; padding-left: 50px !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; }
+            .timeline-dot { right: auto !important; left: 10px !important; }
+            .sub-projects { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation"></div>
+
+    <!-- Language Switch Button -->
+    <button class="lang-switch" onclick="toggleLanguage()">
+        <span class="ar">English</span>
+        <span class="en">العربية</span>
+    </button>
+
+    <!-- Header -->
+    <header class="container">
+        <img src="Logo.png" class="logo" data-aos="fade-down">
+        
+        <div class="profile-card" data-aos="fade-up">
+            <div class="profile-img">
+                <img src="profile.jpeg" alt="Mahmoud Sabry">
+            </div>
+            <div class="profile-info">
+                <h1 class="profile-name">
+                    <span class="ar">محمود صبري</span>
+                    <span class="en">Mahmoud Sabry</span>
+                </h1>
+                <div class="profile-title">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <span class="ar">مسؤول البنية التحتية وتشغيل تكنولوجيا المعلومات</span>
+                    <span class="en">IT Infrastructure & Operations Lead</span>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:mahmoud.sabry@hefnypharmagroup.com" class="contact-item"><i class="fa-solid fa-envelope"></i> mahmoud.sabry@hefnypharmagroup.com</a>
+                    <a href="tel:+201207776848" class="contact-item"><i class="fa-solid fa-phone"></i> <span dir="ltr">+20 120 777 6848</span></a>
+                    <a href="https://www.linkedin.com/in/m-sabry129/" target="_blank" class="contact-item"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="portfolio-main-title" data-aos="fade-up">
+            <span class="ar">الإنجازات التقنية</span>
+            <span class="en">Technical Achievements</span>
+        </h2>
+        <p class="portfolio-subtitle" data-aos="fade-up" data-aos-delay="100">
+            <span class="ar">مشاريع التطوير والتحسينات الفنية لبيئة الشبكة وأنظمة تكنولوجيا المعلومات خلال العام الأول من التعيين</span>
+            <span class="en">Development projects and technical improvements for the network environment and IT systems during the first year of appointment</span>
+        </p>
+    </header>
+
+    <!-- Phase 1: The Inherited State -->
+    <div class="container phase-section danger-zone">
+        <h2 class="section-title" data-aos="fade-up"><i class="fa-solid fa-triangle-exclamation"></i> 
+            <span class="ar">الوضع <span>المستلم</span> عند بداية التعيين</span>
+            <span class="en">Inherited <span>State</span> at the Beginning</span>
+        </h2>
+        <p class="section-desc" data-aos="fade-up" data-aos-delay="100">
+            <span class="ar">تم التعامل مع بيئة تقنية تفتقر إلى التوثيق الكافي، وتعاني من تحديات فنية وتشغيلية مؤثرة سلباً على استقرار البنية التحتية للشبكة والخوادم، مما كان يعرض استمرارية الأعمال لمخاطر متكررة.</span>
+            <span class="en">Dealt with a technical environment lacking sufficient documentation, suffering from technical and operational challenges negatively affecting the stability of the network and server infrastructure, exposing business continuity to recurring risks.</span>
+        </p>
+        <div class="issues-grid">
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-link-slash"></i> <span class="ar">اتصال يدوي ومتقطع بسيرفرات SAP</span><span class="en">Manual and intermittent SAP server connection</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-hard-drive"></i> <span class="ar">ضعف أداء واستقرار File Server</span><span class="en">Poor File Server performance & stability</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-network-wired"></i> <span class="ar">بنية شبكة غير منظمة بطبقات</span><span class="en">Unstructured network tier architecture</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-shield-halved"></i> <span class="ar">عدم استقرار VPN Remote Access</span><span class="en">Unstable VPN Remote Access</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-wave-square"></i> <span class="ar">ارتفاع Network Traffic</span><span class="en">High Network Traffic</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-circle-exclamation"></i> <span class="ar">تكرار IP Conflicts</span><span class="en">Frequent IP Conflicts</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-wifi"></i> <span class="ar">انقطاعات متكررة للإنترنت</span><span class="en">Frequent internet outages</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-filter-circle-xmark"></i> <span class="ar">غياب نظام فلترة إنترنت فعّال</span><span class="en">Lack of effective internet filtering</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-plug-circle-xmark"></i> <span class="ar">انقطاع الكهرباء المتكرر عن السيرفرات</span><span class="en">Frequent power outages to servers</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-temperature-high"></i> <span class="ar">ارتفاع حرارة غرفة الداتا سنتر</span><span class="en">High temperature in Data Center</span></div>
+        </div>
+    </div>
+
+    <!-- Phase 2: The Transformation Journey (Timeline) -->
+    <div class="container phase-section">
+        <h2 class="section-title" data-aos="fade-up"><i class="fa-solid fa-arrows-spin"></i> 
+            <span class="ar">رحلة <span style="color:var(--brand-purple)">التحول</span> والإنجاز</span>
+            <span class="en">Transformation <span style="color:var(--brand-purple)">Journey</span> & Achievements</span>
+        </h2>
+        <div class="timeline">
+            
+            <!-- Project 1 -->
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-file-lines"></i></div>
+                        <div class="project-title">
+                            <h3>01 - DOCUMENTATION</h3>
+                            <h2><span class="ar">حصر وتوثيق البنية التحتية التقنية</span><span class="en">Technical Infrastructure Documentation</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">البدء من بيئة تفتقر إلى التوثيق الفني ونقل المعرفة التشغيلية</span><span class="en">Starting from an environment lacking technical documentation and operational knowledge transfer</span></li>
+                        <li><span class="ar">بذل جهد كبير في حصر مكونات الشبكة والخوادم والخدمات وتحليل ترابطها</span><span class="en">Extensive effort to inventory network components, servers, and services, analyzing their interdependencies</span></li>
+                        <li><span class="ar">استكمال وتطوير التوثيق ليصبح أكثر شمولًا بمشاركة الفريق بالكامل</span><span class="en">Completing and developing comprehensive documentation with the full team</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">بناء قاعدة معرفية موثقة ساهمت في تسهيل الإدارة واتخاذ القرارات الفنية وتنفيذ أعمال التطوير اللاحقة.</span><span class="en">Built a documented knowledge base that facilitated management, technical decision-making, and subsequent development work.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-shield-virus"></i></div>
+                        <div class="project-title">
+                            <h3>02 - NETWORK SECURITY</h3>
+                            <h2><span class="ar">بناء Sophos Firewall من الصفر</span><span class="en">Building Sophos Firewall from Scratch</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">تنفيذ المشروع بالكامل بعد تعطل الفايروول السابق</span><span class="en">Executed the entire project after the previous firewall failed</span></li>
+                        <li><span class="ar">إعادة بناء السياسات الأمنية من الصفر وتطبيق فلترة احترافية للإنترنت</span><span class="en">Rebuilt security policies from scratch and applied professional internet filtering</span></li>
+                        <li><span class="ar">إنشاء Routing منظم لسيرفرات SAP بالمبنى الإداري</span><span class="en">Created organized routing for SAP servers in the administrative building</span></li>
+                        <li><span class="ar">تطبيق VPN Remote Access بشكل احترافي ومستقر</span><span class="en">Implemented professional and stable VPN Remote Access</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">حل مشكلات الفلترة، استقرار اتصال SAP، تحسين خدمات الـ VPN، ورفع مستوى الأمان العام.</span><span class="en">Resolved filtering issues, stabilized SAP connection, improved VPN services, and elevated overall security.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-sitemap"></i></div>
+                        <div class="project-title">
+                            <h3>03 - NETWORK ARCHITECTURE</h3>
+                            <h2><span class="ar">تحديثات هيكلية للبنية التحتية للشبكة</span><span class="en">Structural Updates for Network Infrastructure</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">تنظيم طبقات الشبكة بعد أن كانت جميع المكونات تعمل على نفس المستوى</span><span class="en">Organized network tiers after all components were operating on the same level</span></li>
+                        <li><span class="ar">فصل الخدمات الأساسية عن شبكة المستخدمين</span><span class="en">Separated core services from the user network</span></li>
+                        <li><span class="ar">إعادة ترتيب مكونات الشبكة وربطها بشكل احترافي</span><span class="en">Rearranged network components and connected them professionally</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">القضاء على العشوائية، تقليل المشكلات التشغيلية، وتحسين إدارة الشبكة والأمان وسهولة التوسع.</span><span class="en">Eliminated randomness, reduced operational issues, improved network management, security, and scalability.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                        <div class="project-title">
+                            <h3>04 - LOAD BALANCING</h3>
+                            <h2><span class="ar">إعداد MikroTik Load Balancer</span><span class="en">MikroTik Load Balancer Setup</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">دمج وإدارة خطوط الإنترنت المتعددة</span><span class="en">Integrated and managed multiple internet connections</span></li>
+                        <li><span class="ar">توزيع الأحمال بشكل متوازن بين الخطوط</span><span class="en">Balanced loads evenly across the connections</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">معالجة الانقطاعات المتكررة، تحسين استقرار الإنترنت، وتقليل تأثير الضغط المرتفع.</span><span class="en">Resolved frequent outages, improved internet stability, and reduced the impact of high traffic loads.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-cubes"></i></div>
+                        <div class="project-title">
+                            <h3>05 - VIRTUALIZATION</h3>
+                            <h2><span class="ar">إنشاء بيئة افتراضية Proxmox VE</span><span class="en">Proxmox VE Virtual Environment Creation</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">تجهيز سيرفر جديد بنظام تخزين RAID1</span><span class="en">Prepared a new server with RAID1 storage system</span></li>
+                        <li><span class="ar">بناء منصة افتراضية مستقرة وقابلة للتوسع بمساحة تخزين أكبر</span><span class="en">Built a stable and scalable virtual platform with larger storage capacity</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">رفع مستوى الاعتمادية، حماية البيانات، وتحسين إدارة الخوادم بشكل عام.</span><span class="en">Elevated reliability, protected data, and improved general server management.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-folder-tree"></i></div>
+                        <div class="project-title">
+                            <h3>06 - FILE SERVICES</h3>
+                            <h2><span class="ar">نقل وتطوير File Server</span><span class="en">File Server Migration & Development</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">نقل السيرفر بالكامل إلى بيئة Proxmox دون فقد أي بيانات</span><span class="en">Migrated the server entirely to Proxmox environment without data loss</span></li>
+                        <li><span class="ar">معالجة مشكلة الأداء ومساحة التخزين غير الكافية</span><span class="en">Resolved performance issues and insufficient storage space</span></li>
+                        <li><span class="ar">تحسين إعدادات الخدمة بشكل عام</span><span class="en">Improved general service settings</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">زيادة سرعة الوصول للملفات، وتحسين الاستقرار والاعتمادية بشكل ملحوظ.</span><span class="en">Increased file access speed, and noticeably improved stability and reliability.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-brands fa-microsoft"></i></div>
+                        <div class="project-title">
+                            <h3>07 - ACTIVE DIRECTORY</h3>
+                            <h2><span class="ar">إنشاء Domain Controller إضافي</span><span class="en">Additional Domain Controller Setup</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">إعداد خادم Domain Controller احتياطي</span><span class="en">Set up a backup Domain Controller server</span></li>
+                        <li><span class="ar">دعم الخادم الرئيسي وتوزيع الحمل التشغيلي</span><span class="en">Supported the primary server and distributed operational load</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">تعزيز استمرارية الخدمات، وتقليل مخاطر التوقف عند حدوث أي عطل بالخادم الرئيسي.</span><span class="en">Enhanced service continuity and reduced downtime risks in case of primary server failure.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                        <div class="project-title">
+                            <h3>08 - WIRELESS NETWORK</h3>
+                            <h2><span class="ar">تخطيط وتنفيذ AP Controller & Monitoring</span><span class="en">AP Controller & Monitoring Planning and Execution</span></h2>
+                        </div>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">تصميم وتنفيذ نظام إدارة ومراقبة الشبكة اللاسلكية Wi-Fi</span><span class="en">Designed and implemented a Wi-Fi network management and monitoring system</span></li>
+                        <li><span class="ar">تنفيذ المشروع بالتعاون مع الفريق بالكامل</span><span class="en">Executed the project in collaboration with the entire team</span></li>
+                        <li><span class="ar">المشاركة في دراسة المتطلبات واتخاذ القرارات الفنية الخاصة بالتنفيذ</span><span class="en">Participated in studying requirements and making technical execution decisions</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">تحسين إدارة الشبكة اللاسلكية، ومتابعة الأداء والأعطال بشكل مركزي.</span><span class="en">Improved wireless network management and centralized performance and fault monitoring.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 & 10 -->
+            <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-server"></i></div>
+                        <div class="project-title">
+                            <h3>09 & 10 - FACILITY INFRASTRUCTURE</h3>
+                            <h2><span class="ar">حلول الطاقة والتبريد لغرفة الداتا سنتر</span><span class="en">Power & Cooling Solutions for Data Center</span></h2>
+                        </div>
+                    </div>
+                    <div class="sub-projects">
+                        <div class="sub-card">
+                            <h4><i class="fa-solid fa-car-battery"></i> <span class="ar">UPS الطاقة</span><span class="en">Power UPS</span></h4>
+                            <ul class="project-list">
+                                <li><span class="ar">انقطاع الكهرباء بشكل متكرر كان يعرض السيرفرات لمشاكل فنية</span><span class="en">Frequent power outages exposed servers to technical issues</span></li>
+                                <li><span class="ar">تركيب UPS مخصص للسيرفرات وتوصيل جميع الأجهزة عليه</span><span class="en">Installed a dedicated UPS for servers and connected all devices to it</span></li>
+                            </ul>
+                        </div>
+                        <div class="sub-card">
+                            <h4><i class="fa-solid fa-snowflake"></i> <span class="ar">التبريد</span><span class="en">Cooling</span></h4>
+                            <ul class="project-list">
+                                <li><span class="ar">ارتفاع درجة حرارة غرفة الداتا سنتر بشكل متكرر</span><span class="en">Frequent high temperatures in the Data Center room</span></li>
+                                <li><span class="ar">تركيب تكييف مخصص للغرفة للحفاظ على درجة حرارة آمنة</span><span class="en">Installed dedicated AC for the room to maintain safe temperatures</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">حماية السيرفرات من الإغلاق المفاجئ، ضمان استمرارية التشغيل، وتقليل مخاطر الأعطال الناتجة عن ارتفاع الحرارة.</span><span class="en">Protected servers from sudden shutdowns, ensured operational continuity, and reduced risks of heat-related failures.</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Phase 3: Current Performance & Future State -->
+    <div class="container phase-section success-zone">
+        <h2 class="section-title" data-aos="fade-up"><i class="fa-solid fa-chart-line"></i> 
+            <span class="ar">مستوى الأداء <span>الحالي</span> والمستقبلي</span>
+            <span class="en">Current & <span>Future</span> Performance Level</span>
+        </h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
+                <div class="stat-number">10+</div>
+                <div class="stat-text"><span class="ar">مشاريع تطوير رئيسية تم تنفيذها</span><span class="en">Major Development Projects Executed</span></div>
+                <i class="fa-solid fa-diagram-project" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
+            </div>
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="stat-number">8</div>
+                <div class="stat-text"><span class="ar">مشكلات جوهرية تم حلها نهائياً</span><span class="en">Core Issues Permanently Resolved</span></div>
+                <i class="fa-solid fa-bug-slash" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
+            </div>
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="stat-number">100%</div>
+                <div class="stat-text"><span class="ar">بنية تحتية موثقة بالكامل</span><span class="en">Fully Documented Infrastructure</span></div>
+                <i class="fa-solid fa-book-open" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
+            </div>
+        </div>
+
+        <div class="ongoing-dev" data-aos="fade-up">
+            <h3><i class="fa-solid fa-rocket"></i> <span class="ar">مسار التطوير المستمر</span><span class="en">Continuous Development Path</span></h3>
+            <p>
+                <span class="ar">نتيجة للأعمال المنجزة، تم رفع مستوى الاستقرار والأمان والكفاءة التشغيلية للبنية التحتية بشكل ملحوظ. ومع ذلك، <strong style="color:var(--brand-orange);">ما زال التطوير قائماً للوصول إلى أفضل بيئة إنتاجية</strong> تدعم نمو الأعمال وتلبي متطلباتها التشغيلية المتغيرة بأعلى معايير الجودة والاعتمادية.</span>
+                <span class="en">As a result of the completed work, the stability, security, and operational efficiency of the infrastructure have significantly improved. However, <strong style="color:var(--brand-orange);">development is still ongoing to reach the best production environment</strong> that supports business growth and meets its changing operational requirements with the highest standards of quality and reliability.</span>
+            </p>
+        </div>
+
+        <div class="continuous-section" data-aos="fade-up">
+            <h2 class="ci-title"><i class="fa-solid fa-infinity"></i> <span class="ar">تحسينات مستمرة</span><span class="en">Continuous Improvements</span></h2>
+            <div class="ci-grid">
+                <div class="ci-card">
+                    <h4><i class="fa-solid fa-shield-heart"></i> <span class="ar">حماية الشبكة وأداء الإنترنت</span><span class="en">Network Protection & Internet Performance</span></h4>
+                    <p><span class="ar">تحسينات مستمرة في أداء الشبكة وحمايتها لضمان بيئة عمل آمنة ومستقرة ضد التهديدات المتغيرة.</span><span class="en">Continuous improvements in network performance and protection to ensure a safe and stable environment against evolving threats.</span></p>
+                </div>
+                <div class="ci-card">
+                    <h4><i class="fa-solid fa-chart-area"></i> <span class="ar">مراقبة وتحسين خطوط الإنترنت</span><span class="en">Internet Lines Monitoring & Improvement</span></h4>
+                    <p><span class="ar">مراقبة وتحسين أداء خطوط الإنترنت والـ Load Balancer لضمان توزيع الأحمال بكفاءة ومنع الانقطاعات.</span><span class="en">Monitoring and improving internet lines and Load Balancer performance to ensure efficient load distribution and prevent outages.</span></p>
+                </div>
+                <div class="ci-card">
+                    <h4><i class="fa-solid fa-rotate"></i> <span class="ar">تحديثات الفايروول Sophos</span><span class="en">Sophos Firewall Updates</span></h4>
+                    <p><span class="ar">تطبيق تحديثات أكثر حماية وأداء أعلى على الفايروول Sophos لمواكبة أحدث تقنيات الحماية والفلترة.</span><span class="en">Applying more secure and higher performance updates to the Sophos firewall to keep up with the latest protection and filtering technologies.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><span class="ar">شكرًا لكم</span><span class="en">Thank You</span> <i class="fa-solid fa-handshake" style="color:var(--brand-orange);"></i></p>
+        <p style="margin-top:10px; font-size:0.8rem; color: #64748b;">Rotabiogen - Pharmaceuticals, Investments & Chemicals</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        function toggleLanguage() {
+            const html = document.documentElement;
+            const currentLang = html.getAttribute('lang');
+            if (currentLang === 'ar') {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+            } else {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+            }
+            // Refresh AOS to handle layout changes
+            setTimeout(() => { AOS.refresh(); }, 100);
+        }
+    </script>
+</body>
+</html>
