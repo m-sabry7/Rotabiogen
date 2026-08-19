@@ -41,6 +41,7 @@
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.7;
+            width: 100%;
         }
 
         .bg-animation {
@@ -74,7 +75,7 @@
         .logo {
             width: 160px; margin-bottom: 40px;
             filter: drop-shadow(0 10px 25px rgba(139, 92, 246, 0.4));
-            transition: transform 0.5s;
+            transition: transform 0.5s; max-width: 100%;
         }
         .logo:hover { transform: scale(1.05); }
 
@@ -103,7 +104,7 @@
         .profile-img img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; transition: transform 0.5s; }
         .profile-img:hover img { transform: scale(1.1); }
 
-        .profile-info { text-align: right; flex-grow: 1; }
+        .profile-info { text-align: right; flex-grow: 1; min-width: 0; }
         html[lang="en"] .profile-info { text-align: left; }
 
         .profile-name {
@@ -146,18 +147,19 @@
             margin: 0 auto 40px; font-size: 1.05rem;
         }
 
-        .danger-zone .section-title span { color: var(--accent-red); }
-        .danger-zone .section-desc { border-right: 3px solid var(--accent-red); padding-right: 15px; }
-        html[lang="en"] .danger-zone .section-desc { border-right: none; border-left: 3px solid var(--accent-red); padding-right: 0; padding-left: 15px; }
+        /* Updated Danger Zone Colors to Orange */
+        .danger-zone .section-title span { color: var(--brand-orange); }
+        .danger-zone .section-desc { border-right: 3px solid var(--brand-orange); padding-right: 15px; }
+        html[lang="en"] .danger-zone .section-desc { border-right: none; border-left: 3px solid var(--brand-orange); padding-right: 0; padding-left: 15px; }
 
-        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .issues-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
         .issue-item {
-            background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2);
+            background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2);
             border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 10px;
             font-size: 0.95rem; transition: all 0.3s;
         }
-        .issue-item i { color: var(--accent-red); font-size: 1.2rem; flex-shrink: 0; }
-        .issue-item:hover { background: rgba(239, 68, 68, 0.1); transform: translateX(-5px); }
+        .issue-item i { color: var(--brand-orange); font-size: 1.2rem; flex-shrink: 0; }
+        .issue-item:hover { background: rgba(245, 158, 11, 0.1); transform: translateX(-5px); }
         html[lang="en"] .issue-item:hover { transform: translateX(5px); }
 
         /* Phase 2: Timeline Projects */
@@ -194,13 +196,22 @@
         html[lang="en"] .project-card::before { background: linear-gradient(to right, var(--brand-purple), var(--brand-orange)); }
         .project-card:hover { border-color: var(--brand-purple); box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15); transform: translateY(-5px); }
 
-        .project-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .project-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
         .project-icon {
             width: 50px; height: 50px; background: rgba(139, 92, 246, 0.1); border-radius: 12px;
-            display: flex; align-items: center; justify-content: center; color: var(--brand-purple); font-size: 1.5rem;
+            display: flex; align-items: center; justify-content: center; color: var(--brand-purple); font-size: 1.5rem; flex-shrink: 0;
         }
         .project-title h3 { font-size: 1rem; color: var(--brand-orange); font-weight: 700; }
         .project-title h2 { font-size: 1.3rem; font-weight: 800; }
+
+        .impact-tag {
+            display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+            background: rgba(245, 158, 11, 0.1); color: var(--brand-orange);
+            border: 1px dashed rgba(245, 158, 11, 0.4);
+            padding: 8px 12px; border-radius: 8px; font-size: 0.85rem;
+            font-weight: 700; margin-bottom: 20px; width: fit-content;
+        }
+        .impact-tag i { font-size: 0.9rem; }
 
         .project-list { list-style: none; margin-bottom: 20px; }
         .project-list li { position: relative; padding-right: 20px; margin-bottom: 8px; color: var(--text-gray); }
@@ -212,7 +223,7 @@
             background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 8px; padding: 15px; display: flex; align-items: center; gap: 10px;
         }
-        .result-box i { color: var(--accent-green); font-size: 1.2rem; }
+        .result-box i { color: var(--accent-green); font-size: 1.2rem; flex-shrink: 0; }
         .result-box p { color: var(--accent-green); font-weight: 600; font-size: 0.95rem; }
 
         .sub-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
@@ -221,7 +232,7 @@
 
         /* Phase 3: Current & Future State */
         .success-zone .section-title span { color: var(--accent-green); }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
 
         .stat-card {
             background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
@@ -254,7 +265,7 @@
         html[lang="en"] .continuous-section::before { background: linear-gradient(to right, var(--brand-orange), var(--accent-green)); }
         
         .ci-title { display: flex; align-items: center; justify-content: center; gap: 15px; font-size: 1.8rem; font-weight: 800; color: var(--brand-orange); margin-bottom: 30px; }
-        .ci-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .ci-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .ci-card { background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 12px; padding: 20px; transition: all 0.3s; }
         .ci-card:hover { transform: translateY(-5px); background: rgba(245, 158, 11, 0.1); border-color: var(--brand-orange); }
         .ci-card h4 { display: flex; align-items: center; gap: 10px; color: var(--brand-orange); margin-bottom: 10px; font-size: 1.1rem; }
@@ -262,22 +273,59 @@
 
         footer { text-align: center; padding: 40px 0; color: var(--text-gray); font-size: 0.9rem; }
 
-        /* Responsive - Fixed Mobile Layout */
+        /* Responsive Media Queries */
+        @media (max-width: 992px) {
+            .timeline::before { right: 20px; left: auto; transform: none; }
+            .timeline-item { width: 100%; padding-right: 45px !important; padding-left: 10px !important; margin: 0 0 60px 0 !important; }
+            .timeline-dot { left: auto !important; right: 11px !important; }
+            
+            html[lang="en"] .timeline::before { left: 20px; right: auto; transform: none; }
+            html[lang="en"] .timeline-item { padding-left: 45px !important; padding-right: 10px !important; }
+            html[lang="en"] .timeline-dot { right: auto !important; left: 11px !important; }
+
+            .sub-projects { grid-template-columns: 1fr !important; }
+        }
+
         @media (max-width: 768px) {
-            header { padding-top: 60px; }
+            header { padding: 60px 0 20px; }
             .profile-card { 
                 flex-direction: column !important; 
                 text-align: center !important;
-                padding: 30px 20px;
+                padding: 25px 15px;
+                gap: 15px;
             }
             .profile-info, html[lang="en"] .profile-info { text-align: center !important; }
-            .profile-title { justify-content: center !important; }
-            .contact-links { justify-content: center !important; }
-            .portfolio-main-title { font-size: 2rem; }
-            .timeline::before { right: 20px; left: auto; transform: none; }
-            .timeline-item { width: 100%; padding-left: 50px !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; }
-            .timeline-dot { right: auto !important; left: 10px !important; }
-            .sub-projects { grid-template-columns: 1fr !important; }
+            .profile-title { justify-content: center !important; flex-wrap: wrap; }
+            .contact-links { justify-content: center !important; gap: 10px 15px; }
+            
+            .profile-name { font-size: 1.6rem; }
+            .profile-title { font-size: 1rem; }
+            .portfolio-main-title { font-size: 1.8rem; }
+            .section-title { font-size: 1.5rem; flex-wrap: wrap; }
+            .section-desc { font-size: 0.95rem; }
+            
+            .stat-number { font-size: 2.2rem; }
+            .stat-text { font-size: 0.9rem; }
+            
+            .project-card { padding: 20px; }
+            .continuous-section { padding: 20px; }
+            .ci-card { padding: 15px; }
+            
+            .issue-item { padding: 10px; font-size: 0.85rem; }
+            
+            .lang-switch { top: 10px; right: 10px; padding: 6px 12px; font-size: 0.8rem; }
+            html[lang="en"] .lang-switch { left: 10px; right: auto; }
+        }
+
+        @media (max-width: 400px) {
+            .container { padding: 0 15px; }
+            .portfolio-main-title { font-size: 1.5rem; }
+            .section-title { font-size: 1.3rem; }
+            .contact-item { font-size: 0.8rem; }
+            .logo { width: 120px; margin-bottom: 20px; }
+            .profile-img { width: 100px; height: 100px; }
+            .project-title h2 { font-size: 1.1rem; }
+            .project-title h3 { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -322,30 +370,28 @@
             <span class="en">Technical Achievements</span>
         </h2>
         <p class="portfolio-subtitle" data-aos="fade-up" data-aos-delay="100">
-            <span class="ar">مشاريع التطوير والتحسينات الفنية لبيئة الشبكة وأنظمة تكنولوجيا المعلومات خلال العام الأول من التعيين</span>
-            <span class="en">Development projects and technical improvements for the network environment and IT systems during the first year of appointment</span>
+            <span class="ar">تطوير البنية التحتية وتأثيرها على استقرار وأمان واستمرارية التشغيل خلال العام الأول من التعيين</span>
+            <span class="en">Infrastructure development and its impact on stability, security, and operational continuity during the first year of appointment</span>
         </p>
     </header>
 
     <!-- Phase 1: The Inherited State -->
     <div class="container phase-section danger-zone">
-        <h2 class="section-title" data-aos="fade-up"><i class="fa-solid fa-triangle-exclamation"></i> 
+        <h2 class="section-title" data-aos="fade-up"><i class="fa-solid fa-triangle-exclamation" style="color: var(--brand-orange);"></i> 
             <span class="ar">الوضع <span>المستلم</span> عند بداية التعيين</span>
             <span class="en">Inherited <span>State</span> at the Beginning</span>
         </h2>
         <p class="section-desc" data-aos="fade-up" data-aos-delay="100">
-            <span class="ar">تم التعامل مع بيئة تقنية تفتقر إلى التوثيق الكافي، وتعاني من تحديات فنية وتشغيلية مؤثرة سلباً على استقرار البنية التحتية للشبكة والخوادم، مما كان يعرض استمرارية الأعمال لمخاطر متكررة.</span>
-            <span class="en">Dealt with a technical environment lacking sufficient documentation, suffering from technical and operational challenges negatively affecting the stability of the network and server infrastructure, exposing business continuity to recurring risks.</span>
+            <span class="ar">عند بدء أعمال التطوير، تم تحديد عدد من التحديات التشغيلية والفنية التي تطلبت إعادة تنظيم وتطوير البيئة. مما استدعى تدخلاً هيكلياً لضمان استمرارية الأعمال والأمان.</span>
+            <span class="en">At the beginning of the development work, several operational and technical challenges were identified that required reorganization and environment development. necessitating structural intervention to ensure business continuity and security.</span>
         </p>
         <div class="issues-grid">
             <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-link-slash"></i> <span class="ar">اتصال يدوي ومتقطع بسيرفرات SAP</span><span class="en">Manual and intermittent SAP server connection</span></div>
             <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-hard-drive"></i> <span class="ar">ضعف أداء واستقرار File Server</span><span class="en">Poor File Server performance & stability</span></div>
-            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-network-wired"></i> <span class="ar">بنية شبكة غير منظمة بطبقات</span><span class="en">Unstructured network tier architecture</span></div>
-            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-shield-halved"></i> <span class="ar">عدم استقرار VPN Remote Access</span><span class="en">Unstable VPN Remote Access</span></div>
-            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-wave-square"></i> <span class="ar">ارتفاع Network Traffic</span><span class="en">High Network Traffic</span></div>
-            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-circle-exclamation"></i> <span class="ar">تكرار IP Conflicts</span><span class="en">Frequent IP Conflicts</span></div>
-            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-wifi"></i> <span class="ar">انقطاعات متكررة للإنترنت</span><span class="en">Frequent internet outages</span></div>
-            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-filter-circle-xmark"></i> <span class="ar">غياب نظام فلترة إنترنت فعّال</span><span class="en">Lack of effective internet filtering</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-network-wired"></i> <span class="ar">تداخل في توصيلات مكونات الشبكة</span><span class="en">Physical interference causing security bypasses</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-shield-halved"></i> <span class="ar">غياب فلترة ويب وتطبيقات فعالة</span><span class="en">Lack of effective Web/App Filtering</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-wave-square"></i> <span class="ar">ارتفاع Network Traffic</span><span class="en">High Network Traffic & bottlenecks</span></div>
+            <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-wifi"></i> <span class="ar">انقطاعات متكررة وغياب مراقبة الإنترنت</span><span class="en">Frequent outages & lack of internet monitoring</span></div>
             <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-plug-circle-xmark"></i> <span class="ar">انقطاع الكهرباء المتكرر عن السيرفرات</span><span class="en">Frequent power outages to servers</span></div>
             <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-temperature-high"></i> <span class="ar">ارتفاع حرارة غرفة الداتا سنتر</span><span class="en">High temperature in Data Center</span></div>
         </div>
@@ -359,218 +405,236 @@
         </h2>
         <div class="timeline">
             
-            <!-- Project 1 -->
+            <!-- 01. Network Security -->
             <div class="timeline-item" data-aos="fade-left">
-                <div class="timeline-dot"></div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="fa-solid fa-file-lines"></i></div>
-                        <div class="project-title">
-                            <h3>01 - DOCUMENTATION</h3>
-                            <h2><span class="ar">حصر وتوثيق البنية التحتية التقنية</span><span class="en">Technical Infrastructure Documentation</span></h2>
-                        </div>
-                    </div>
-                    <ul class="project-list">
-                        <li><span class="ar">البدء من بيئة تفتقر إلى التوثيق الفني ونقل المعرفة التشغيلية</span><span class="en">Starting from an environment lacking technical documentation and operational knowledge transfer</span></li>
-                        <li><span class="ar">بذل جهد كبير في حصر مكونات الشبكة والخوادم والخدمات وتحليل ترابطها</span><span class="en">Extensive effort to inventory network components, servers, and services, analyzing their interdependencies</span></li>
-                        <li><span class="ar">استكمال وتطوير التوثيق ليصبح أكثر شمولًا بمشاركة الفريق بالكامل</span><span class="en">Completing and developing comprehensive documentation with the full team</span></li>
-                    </ul>
-                    <div class="result-box">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">بناء قاعدة معرفية موثقة ساهمت في تسهيل الإدارة واتخاذ القرارات الفنية وتنفيذ أعمال التطوير اللاحقة.</span><span class="en">Built a documented knowledge base that facilitated management, technical decision-making, and subsequent development work.</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="timeline-item" data-aos="fade-right">
                 <div class="timeline-dot"></div>
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-shield-virus"></i></div>
                         <div class="project-title">
-                            <h3>02 - NETWORK SECURITY</h3>
-                            <h2><span class="ar">بناء Sophos Firewall من الصفر</span><span class="en">Building Sophos Firewall from Scratch</span></h2>
+                            <h3>01 - NETWORK & SECURITY TRANSFORMATION</h3>
+                            <h2><span class="ar">بناء وتكوين Sophos Firewall</span><span class="en">Building Advanced Sophos Firewall</span></h2>
                         </div>
                     </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        <span class="ar">+400 مستخدم | 6 خطوط إنترنت | Web/App Filtering</span>
+                        <span class="en">400+ Users | 6 Internet Lines | Web/App Filtering</span>
+                    </div>
                     <ul class="project-list">
-                        <li><span class="ar">تنفيذ المشروع بالكامل بعد تعطل الفايروول السابق</span><span class="en">Executed the entire project after the previous firewall failed</span></li>
-                        <li><span class="ar">إعادة بناء السياسات الأمنية من الصفر وتطبيق فلترة احترافية للإنترنت</span><span class="en">Rebuilt security policies from scratch and applied professional internet filtering</span></li>
-                        <li><span class="ar">إنشاء Routing منظم لسيرفرات SAP بالمبنى الإداري</span><span class="en">Created organized routing for SAP servers in the administrative building</span></li>
-                        <li><span class="ar">تطبيق VPN Remote Access بشكل احترافي ومستقر</span><span class="en">Implemented professional and stable VPN Remote Access</span></li>
+                        <li><span class="ar">بناء الفايروول من الصفر بعد سقوط النظام السابق، لخدمة أكثر من 400 مستخدم</span><span class="en">Built the firewall from scratch after the failure of the previous system, to serve 400+ users</span></li>
+                        <li><span class="ar">تطبيق السياسات الأمنية (Security Policies) شاملة الحماية، وفلترة الويب والتطبيقات (Web/App Filtering)</span><span class="en">Applied comprehensive Security Policies, including Web and Application Filtering</span></li>
+                        <li><span class="ar">تفعيل نظام Captive Portal لمصادقة المستخدمين (User Authentication) قبل الوصول للشبكة</span><span class="en">Enabled Captive Portal for User Authentication prior to network access</span></li>
+                        <li><span class="ar">إعداد SD-WAN Profiles لمراقبة أداء خطوط الإنترنت الستة وتوجيه الترافيك بكفاءة</span><span class="en">Configured SD-WAN Profiles to monitor the performance of the six internet lines and route traffic efficiently</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">حل مشكلات الفلترة، استقرار اتصال SAP، تحسين خدمات الـ VPN، ورفع مستوى الأمان العام.</span><span class="en">Resolved filtering issues, stabilized SAP connection, improved VPN services, and elevated overall security.</span></p>
+                        <p><span class="ar">تحسين جوهري في مستوى أمان الشبكة، مع سيطرة فعالة على التطبيقات المستخدمة وتوزيع كفء للأحمال على خطوط الإنترنت.</span><span class="en">A fundamental improvement in network security, with effective application control and efficient load distribution across internet lines.</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3 -->
-            <div class="timeline-item" data-aos="fade-left">
+            <!-- 02. Network Architecture -->
+            <div class="timeline-item" data-aos="fade-right">
                 <div class="timeline-dot"></div>
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-sitemap"></i></div>
                         <div class="project-title">
-                            <h3>03 - NETWORK ARCHITECTURE</h3>
-                            <h2><span class="ar">تحديثات هيكلية للبنية التحتية للشبكة</span><span class="en">Structural Updates for Network Infrastructure</span></h2>
+                            <h3>02 - NETWORK ARCHITECTURE</h3>
+                            <h2><span class="ar">إعادة هيكلة البنية التحتية (Network Layers)</span><span class="en">Network Infrastructure Restructuring (Layers)</span></h2>
                         </div>
                     </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span class="ar">عزل طبقات الشبكة | تقليل الاختناقات</span>
+                        <span class="en">Network Layer Isolation | Bottleneck Reduction</span>
+                    </div>
                     <ul class="project-list">
-                        <li><span class="ar">تنظيم طبقات الشبكة بعد أن كانت جميع المكونات تعمل على نفس المستوى</span><span class="en">Organized network tiers after all components were operating on the same level</span></li>
-                        <li><span class="ar">فصل الخدمات الأساسية عن شبكة المستخدمين</span><span class="en">Separated core services from the user network</span></li>
-                        <li><span class="ar">إعادة ترتيب مكونات الشبكة وربطها بشكل احترافي</span><span class="en">Rearranged network components and connected them professionally</span></li>
+                        <li><span class="ar">عزل المكونات الأساسية (الفايروول، اللود بالانسر، الراوترات، وجهاز Meraki للربط)</span><span class="en">Isolated core components (Firewall, Load Balancer, Routers, and Meraki bridge)</span></li>
+                        <li><span class="ar">ترتيب المكونات في طبقات منطقية (Network Layers) لضمان مسار بيانات آمن</span><span class="en">Arranged components into logical Network Layers to ensure secure data paths</span></li>
+                        <li><span class="ar">معالجة التداخل الفيزيائي الذي كان يسبب رفعًا عشوائيًا للترافيك وتخطي حماية الشبكة</span><span class="en">Resolved physical interference that caused random traffic spikes and security bypasses</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">القضاء على العشوائية، تقليل المشكلات التشغيلية، وتحسين إدارة الشبكة والأمان وسهولة التوسع.</span><span class="en">Eliminated randomness, reduced operational issues, improved network management, security, and scalability.</span></p>
+                        <p><span class="ar">تقليل العشوائية والاختناقات المرورية، ورفع مستوى الأمان وسهولة التوسع المستقبلي.</span><span class="en">Reduced randomness and traffic bottlenecks, elevating security and ensuring future scalability.</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 4 -->
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-dot"></div>
-                <div class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                        <div class="project-title">
-                            <h3>04 - LOAD BALANCING</h3>
-                            <h2><span class="ar">إعداد MikroTik Load Balancer</span><span class="en">MikroTik Load Balancer Setup</span></h2>
-                        </div>
-                    </div>
-                    <ul class="project-list">
-                        <li><span class="ar">دمج وإدارة خطوط الإنترنت المتعددة</span><span class="en">Integrated and managed multiple internet connections</span></li>
-                        <li><span class="ar">توزيع الأحمال بشكل متوازن بين الخطوط</span><span class="en">Balanced loads evenly across the connections</span></li>
-                    </ul>
-                    <div class="result-box">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">معالجة الانقطاعات المتكررة، تحسين استقرار الإنترنت، وتقليل تأثير الضغط المرتفع.</span><span class="en">Resolved frequent outages, improved internet stability, and reduced the impact of high traffic loads.</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
+            <!-- 03. Server & Virtualization Infrastructure -->
             <div class="timeline-item" data-aos="fade-left">
                 <div class="timeline-dot"></div>
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-cubes"></i></div>
                         <div class="project-title">
-                            <h3>05 - VIRTUALIZATION</h3>
-                            <h2><span class="ar">إنشاء بيئة افتراضية Proxmox VE</span><span class="en">Proxmox VE Virtual Environment Creation</span></h2>
+                            <h3>03 - SERVER & VIRTUALIZATION INFRASTRUCTURE</h3>
+                            <h2><span class="ar">بيئة Proxmox VE وتوحيد الخدمات والنسخ الاحتياطي</span><span class="en">Proxmox VE Environment & Services Consolidation</span></h2>
                         </div>
                     </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-server"></i>
+                        <span class="ar">HPE ProLiant DL380 Gen9 | Proxmox VE | Veeam Backup | Services Server</span>
+                        <span class="en">HPE ProLiant DL380 Gen9 | Proxmox VE | Veeam Backup | Services Server</span>
+                    </div>
                     <ul class="project-list">
-                        <li><span class="ar">تجهيز سيرفر جديد بنظام تخزين RAID1</span><span class="en">Prepared a new server with RAID1 storage system</span></li>
-                        <li><span class="ar">بناء منصة افتراضية مستقرة وقابلة للتوسع بمساحة تخزين أكبر</span><span class="en">Built a stable and scalable virtual platform with larger storage capacity</span></li>
+                        <li><span class="ar">تجهيز خادم HPE ProLiant DL380 Gen9 بنظام تخزين RAID1 لزيادة موثوقية التخزين</span><span class="en">Prepared an HPE ProLiant DL380 Gen9 server with RAID1 storage to increase storage reliability</span></li>
+                        <li><span class="ar">بناء منصة افتراضية (Proxmox VE) مستقرة لاستيعاب الخوادم الحرجة</span><span class="en">Built a stable virtualization platform (Proxmox VE) to host critical servers</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">رفع مستوى الاعتمادية، حماية البيانات، وتحسين إدارة الخوادم بشكل عام.</span><span class="en">Elevated reliability, protected data, and improved general server management.</span></p>
+                        <p><span class="ar">زيادة موثوقية التخزين وتحمل الأخطاء (Storage Redundancy)، إضافة طبقة نسخ احتياطي مستقلة، وتوحيد إدارة الخدمات ضمن بيئة افتراضية واحدة.</span><span class="en">Increased storage reliability and fault tolerance (Storage Redundancy), added an independent backup layer, and unified service management within a single virtual environment.</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 6 -->
+            <!-- 04. File Services -->
             <div class="timeline-item" data-aos="fade-right">
                 <div class="timeline-dot"></div>
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-folder-tree"></i></div>
                         <div class="project-title">
-                            <h3>06 - FILE SERVICES</h3>
-                            <h2><span class="ar">نقل وتطوير File Server</span><span class="en">File Server Migration & Development</span></h2>
+                            <h3>04 - FILE SERVICES</h3>
+                            <h2><span class="ar">تطوير سيرفر الشير وسعة التخزين</span><span class="en">File Share Server & Storage Capacity Development</span></h2>
                         </div>
                     </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-database"></i>
+                        <span class="ar">18 TB Storage | 3× السعة | Unified File Sharing</span>
+                        <span class="en">18 TB Storage | 3× Capacity | Unified File Sharing</span>
+                    </div>
                     <ul class="project-list">
-                        <li><span class="ar">نقل السيرفر بالكامل إلى بيئة Proxmox دون فقد أي بيانات</span><span class="en">Migrated the server entirely to Proxmox environment without data loss</span></li>
-                        <li><span class="ar">معالجة مشكلة الأداء ومساحة التخزين غير الكافية</span><span class="en">Resolved performance issues and insufficient storage space</span></li>
-                        <li><span class="ar">تحسين إعدادات الخدمة بشكل عام</span><span class="en">Improved general service settings</span></li>
+                        <li><span class="ar">ترحيل سيرفر الشير بالكامل إلى بيئة Proxmox بأمان تام دون فقد أي بيانات</span><span class="en">Migrated the File Share server entirely to Proxmox safely with zero data loss</span></li>
+                        <li><span class="ar">زيادة مساحة التخزين من 6TB إلى 18TB (ثلاثة أضعاف) لمعالجة المشاكل التشغيلية السابقة</span><span class="en">Expanded storage capacity from 6TB to 18TB (3x) to resolve previous operational issues</span></li>
+                        <li><span class="ar">نقل الملفات من سيرفر Ubuntu إلى سيرفر الملفات (File Share) الجديد في بيئة افتراضية موحدة</span><span class="en">Transferred files from an Ubuntu server to the new File Share server in a unified virtual environment</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">زيادة سرعة الوصول للملفات، وتحسين الاستقرار والاعتمادية بشكل ملحوظ.</span><span class="en">Increased file access speed, and noticeably improved stability and reliability.</span></p>
+                        <p><span class="ar">زيادة ملحوظة في سرعة الوصول للملفات، تحسين الاستقرار، وتقليل الأعطال المتكررة المرتبطة بالتخزين.</span><span class="en">Noticeable increase in file access speed, improved stability, and reduction in recurring storage-related incidents.</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 7 -->
+            <!-- 05. Core Services & AD -->
             <div class="timeline-item" data-aos="fade-left">
                 <div class="timeline-dot"></div>
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-brands fa-microsoft"></i></div>
                         <div class="project-title">
-                            <h3>07 - ACTIVE DIRECTORY</h3>
-                            <h2><span class="ar">إنشاء Domain Controller إضافي</span><span class="en">Additional Domain Controller Setup</span></h2>
+                            <h3>05 - CORE SERVICES & AD</h3>
+                            <h2><span class="ar">المصادقة المركزية والخدمات الأساسية</span><span class="en">Centralized Authentication & Core Services</span></h2>
                         </div>
                     </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-cube"></i>
+                        <span class="ar">ADC | Centralized Controllers</span>
+                        <span class="en">ADC | Centralized Controllers</span>
+                    </div>
                     <ul class="project-list">
-                        <li><span class="ar">إعداد خادم Domain Controller احتياطي</span><span class="en">Set up a backup Domain Controller server</span></li>
-                        <li><span class="ar">دعم الخادم الرئيسي وتوزيع الحمل التشغيلي</span><span class="en">Supported the primary server and distributed operational load</span></li>
+                        <li><span class="ar">إعداد خادم Domain Controller إضافي (Additional DC) لتوفير التسامح مع الأخطاء واستمرارية المصادقة</span><span class="en">Set up an Additional Domain Controller (ADC) to provide fault tolerance and authentication continuity</span></li>
+                        <li><span class="ar">توحيد الخدمات في خادم مركزي (Services Server) لاستضافة Omada, UniFi, و ManageEngine</span><span class="en">Consolidated services into a central Services Server to host Omada, UniFi, and ManageEngine</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">تعزيز استمرارية الخدمات، وتقليل مخاطر التوقف عند حدوث أي عطل بالخادم الرئيسي.</span><span class="en">Enhanced service continuity and reduced downtime risks in case of primary server failure.</span></p>
+                        <p><span class="ar">تعزيز استمرارية خدمة المصادقة وتقليل مخاطر التوقف للمستخدمين.</span><span class="en">Enhanced authentication service continuity and reduced downtime risks for users.</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 8 -->
+            <!-- 06. Wireless Network -->
             <div class="timeline-item" data-aos="fade-right">
                 <div class="timeline-dot"></div>
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
                         <div class="project-title">
-                            <h3>08 - WIRELESS NETWORK</h3>
-                            <h2><span class="ar">تخطيط وتنفيذ AP Controller & Monitoring</span><span class="en">AP Controller & Monitoring Planning and Execution</span></h2>
+                            <h3>06 - WIRELESS NETWORK</h3>
+                            <h2><span class="ar">بناء وتطوير البنية اللاسلكية (Controllers & APs)</span><span class="en">Wireless Infrastructure Build (Controllers & APs)</span></h2>
                         </div>
                     </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-wifi"></i>
+                        <span class="ar">10 Omada APs | 5 UniFi APs | إدارة مركزية</span>
+                        <span class="en">10 Omada APs | 5 UniFi APs | Centralized Management</span>
+                    </div>
                     <ul class="project-list">
-                        <li><span class="ar">تصميم وتنفيذ نظام إدارة ومراقبة الشبكة اللاسلكية Wi-Fi</span><span class="en">Designed and implemented a Wi-Fi network management and monitoring system</span></li>
-                        <li><span class="ar">تنفيذ المشروع بالتعاون مع الفريق بالكامل</span><span class="en">Executed the project in collaboration with the entire team</span></li>
-                        <li><span class="ar">المشاركة في دراسة المتطلبات واتخاذ القرارات الفنية الخاصة بالتنفيذ</span><span class="en">Participated in studying requirements and making technical execution decisions</span></li>
+                        <li><span class="ar">تركيب 10 أجهزة Access Points من سلسلة TP-Link Omada وبناء الكنترولر الخاص بها</span><span class="en">Installed 10 TP-Link Omada series Access Points and built their dedicated controller</span></li>
+                        <li><span class="ar">إعادة إعداد 5 أجهزة UniFi Access Points القديمة ضمن كنترولر UniFi موحد</span><span class="en">Reconfigured 5 legacy UniFi Access Points within a unified UniFi Controller</span></li>
+                        <li><span class="ar">توفير نظام موحد للمراقبة المركزية (Centralized Monitoring) لأداء الشبكة اللاسلكية</span><span class="en">Provided a unified system for Centralized Monitoring of wireless network performance</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">تحسين إدارة الشبكة اللاسلكية، ومتابعة الأداء والأعطال بشكل مركزي.</span><span class="en">Improved wireless network management and centralized performance and fault monitoring.</span></p>
+                        <p><span class="ar">إدارة احترافية موحدة للشبكة اللاسلكية، ومتابعة الأداء والأعطال بشكل مركزي وسريع.</span><span class="en">Professional unified wireless network management, with centralized and rapid fault monitoring.</span></p>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 9 & 10 -->
+            <!-- 07. Data Center Resilience -->
             <div class="timeline-item" data-aos="fade-left">
                 <div class="timeline-dot"></div>
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-server"></i></div>
                         <div class="project-title">
-                            <h3>09 & 10 - FACILITY INFRASTRUCTURE</h3>
+                            <h3>07 - DATA CENTER RESILIENCE</h3>
                             <h2><span class="ar">حلول الطاقة والتبريد لغرفة الداتا سنتر</span><span class="en">Power & Cooling Solutions for Data Center</span></h2>
                         </div>
+                    </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span class="ar">UPS مخصص | تكييف مخصص</span>
+                        <span class="en">Dedicated UPS | Dedicated AC</span>
                     </div>
                     <div class="sub-projects">
                         <div class="sub-card">
                             <h4><i class="fa-solid fa-car-battery"></i> <span class="ar">UPS الطاقة</span><span class="en">Power UPS</span></h4>
                             <ul class="project-list">
-                                <li><span class="ar">انقطاع الكهرباء بشكل متكرر كان يعرض السيرفرات لمشاكل فنية</span><span class="en">Frequent power outages exposed servers to technical issues</span></li>
-                                <li><span class="ar">تركيب UPS مخصص للسيرفرات وتوصيل جميع الأجهزة عليه</span><span class="en">Installed a dedicated UPS for servers and connected all devices to it</span></li>
+                                <li><span class="ar">انقطاع الكهرباء المتكرر كان يعرض السيرفرات لمشاكل فنية</span><span class="en">Frequent power outages exposed servers to technical issues</span></li>
+                                <li><span class="ar">تركيب UPS مخصص وتوصيل جميع الأجهزة عليه لمنع الإغلاق المفاجئ</span><span class="en">Installed a dedicated UPS and connected all devices to prevent sudden shutdowns</span></li>
                             </ul>
                         </div>
                         <div class="sub-card">
                             <h4><i class="fa-solid fa-snowflake"></i> <span class="ar">التبريد</span><span class="en">Cooling</span></h4>
                             <ul class="project-list">
                                 <li><span class="ar">ارتفاع درجة حرارة غرفة الداتا سنتر بشكل متكرر</span><span class="en">Frequent high temperatures in the Data Center room</span></li>
-                                <li><span class="ar">تركيب تكييف مخصص للغرفة للحفاظ على درجة حرارة آمنة</span><span class="en">Installed dedicated AC for the room to maintain safe temperatures</span></li>
+                                <li><span class="ar">تركيب تكييف مخصص للحفاظ على درجة حرارة آمنة (HVAC)</span><span class="en">Installed dedicated AC to maintain safe HVAC temperatures</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">حماية السيرفرات من الإغلاق المفاجئ، ضمان استمرارية التشغيل، وتقليل مخاطر الأعطال الناتجة عن ارتفاع الحرارة.</span><span class="en">Protected servers from sudden shutdowns, ensured operational continuity, and reduced risks of heat-related failures.</span></p>
+                        <p><span class="ar">تحسين استمرارية التشغيل، وتقليل مخاطر الأعطال الناتجة عن ارتفاع الحرارة أو انقطاع الكهرباء.</span><span class="en">Improved operational continuity and reduced risks of heat or power-related failures.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 08. Documentation & Operational Governance -->
+            <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fa-solid fa-file-lines"></i></div>
+                        <div class="project-title">
+                            <h3>08 - DOCUMENTATION & OPERATIONAL GOVERNANCE</h3>
+                            <h2><span class="ar">حصر وتوثيق البنية التحتية التقنية</span><span class="en">Technical Infrastructure Documentation</span></h2>
+                        </div>
+                    </div>
+                    <div class="impact-tag">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span class="ar">حصر كامل للبنية التحتية | قاعدة معرفية حية</span>
+                        <span class="en">Full Infrastructure Audit | Living Knowledge Base</span>
+                    </div>
+                    <ul class="project-list">
+                        <li><span class="ar">حصر مكونات الشبكة والخوادم والخدمات، وتحليل ترابطها الفيزيائي والمنطقي</span><span class="en">Inventoried network components, servers, and services, analyzing physical and logical interdependencies</span></li>
+                        <li><span class="ar">بناء قاعدة معرفية شاملة (Knowledge Base) لدعم الإدارة واتخاذ القرارات الفنية</span><span class="en">Built a comprehensive Knowledge Base to support management and data-driven technical decisions</span></li>
+                        <li><span class="ar">اعتماد التوثيق كممارسة مستمرة ضمن كل مشروع تطوير لاحق</span><span class="en">Adopted documentation as a continuous practice within all subsequent development projects</span></li>
+                    </ul>
+                    <div class="result-box">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p><span class="ar">مرجعية فنية دقيقة ساهمت في تسريع حل الأعطال، وأساس متين لاستمرار حوكمة البنية التحتية.</span><span class="en">A precise technical reference that accelerated fault resolution and laid a solid foundation for continuous infrastructure governance.</span></p>
                     </div>
                 </div>
             </div>
@@ -587,19 +651,24 @@
         
         <div class="stats-grid">
             <div class="stat-card" data-aos="zoom-in" data-aos-delay="0">
-                <div class="stat-number">10+</div>
-                <div class="stat-text"><span class="ar">مشاريع تطوير رئيسية تم تنفيذها</span><span class="en">Major Development Projects Executed</span></div>
-                <i class="fa-solid fa-diagram-project" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
+                <div class="stat-number">400+</div>
+                <div class="stat-text"><span class="ar">مستخدم يدعمه النظام الجديد</span><span class="en">Users Supported by New System</span></div>
+                <i class="fa-solid fa-users" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
             </div>
             <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="stat-number">8</div>
-                <div class="stat-text"><span class="ar">مشكلات جوهرية تم حلها نهائياً</span><span class="en">Core Issues Permanently Resolved</span></div>
-                <i class="fa-solid fa-bug-slash" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
+                <div class="stat-number">3x</div>
+                <div class="stat-text"><span class="ar">زيادة سعة التخزين (18 TB)</span><span class="en">Storage Capacity Increased (18 TB)</span></div>
+                <i class="fa-solid fa-database" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
             </div>
             <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="stat-number">100%</div>
-                <div class="stat-text"><span class="ar">بنية تحتية موثقة بالكامل</span><span class="en">Fully Documented Infrastructure</span></div>
-                <i class="fa-solid fa-book-open" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
+                <div class="stat-number">15</div>
+                <div class="stat-text"><span class="ar">نقطة وصول لاسلكية موحدة</span><span class="en">Unified Wireless Access Points</span></div>
+                <i class="fa-solid fa-wifi" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
+            </div>
+            <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="stat-number">~1ms</div>
+                <div class="stat-text"><span class="ar">زمن استجابة الشبكة (Ping)</span><span class="en">Network Latency (Ping)</span></div>
+                <i class="fa-solid fa-gauge-high" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
             </div>
         </div>
 
@@ -611,20 +680,42 @@
             </p>
         </div>
 
+        <!-- Continuous Improvements Section (Bilingual) -->
         <div class="continuous-section" data-aos="fade-up">
-            <h2 class="ci-title"><i class="fa-solid fa-infinity"></i> <span class="ar">تحسينات مستمرة</span><span class="en">Continuous Improvements</span></h2>
+            <h2 class="ci-title"><i class="fa-solid fa-infinity"></i> 
+                <span class="ar">تحسينات مستمرة</span>
+                <span class="en">Continuous Improvements</span>
+            </h2>
             <div class="ci-grid">
                 <div class="ci-card">
-                    <h4><i class="fa-solid fa-shield-heart"></i> <span class="ar">حماية الشبكة وأداء الإنترنت</span><span class="en">Network Protection & Internet Performance</span></h4>
-                    <p><span class="ar">تحسينات مستمرة في أداء الشبكة وحمايتها لضمان بيئة عمل آمنة ومستقرة ضد التهديدات المتغيرة.</span><span class="en">Continuous improvements in network performance and protection to ensure a safe and stable environment against evolving threats.</span></p>
+                    <h4><i class="fa-solid fa-shield-heart"></i> 
+                        <span class="ar">حماية الشبكة وأداء الإنترنت</span>
+                        <span class="en">Network Security & Internet Performance</span>
+                    </h4>
+                    <p>
+                        <span class="ar">تحسينات مستمرة في أداء الشبكة وحمايتها لضمان بيئة عمل آمنة ومستقرة ضد التهديدات المتغيرة.</span>
+                        <span class="en">Continuous improvements in network performance and security to ensure a safe and stable environment against evolving threats.</span>
+                    </p>
                 </div>
                 <div class="ci-card">
-                    <h4><i class="fa-solid fa-chart-area"></i> <span class="ar">مراقبة وتحسين خطوط الإنترنت</span><span class="en">Internet Lines Monitoring & Improvement</span></h4>
-                    <p><span class="ar">مراقبة وتحسين أداء خطوط الإنترنت والـ Load Balancer لضمان توزيع الأحمال بكفاءة ومنع الانقطاعات.</span><span class="en">Monitoring and improving internet lines and Load Balancer performance to ensure efficient load distribution and prevent outages.</span></p>
+                    <h4><i class="fa-solid fa-chart-area"></i> 
+                        <span class="ar">مراقبة وتحسين خطوط الإنترنت</span>
+                        <span class="en">Internet Lines Monitoring & Optimization</span>
+                    </h4>
+                    <p>
+                        <span class="ar">مراقبة وتحسين أداء خطوط الإنترنت والـ Load Balancer لضمان توزيع الأحمال بكفاءة ومنع الانقطاعات.</span>
+                        <span class="en">Monitoring and optimizing the performance of internet lines and the Load Balancer to ensure efficient traffic distribution and prevent outages.</span>
+                    </p>
                 </div>
                 <div class="ci-card">
-                    <h4><i class="fa-solid fa-rotate"></i> <span class="ar">تحديثات الفايروول Sophos</span><span class="en">Sophos Firewall Updates</span></h4>
-                    <p><span class="ar">تطبيق تحديثات أكثر حماية وأداء أعلى على الفايروول Sophos لمواكبة أحدث تقنيات الحماية والفلترة.</span><span class="en">Applying more secure and higher performance updates to the Sophos firewall to keep up with the latest protection and filtering technologies.</span></p>
+                    <h4><i class="fa-solid fa-rotate"></i> 
+                        <span class="ar">تحديثات الفايروول Sophos</span>
+                        <span class="en">Sophos Firewall Updates</span>
+                    </h4>
+                    <p>
+                        <span class="ar">تطبيق تحديثات أكثر حماية وأداء أعلى على الفايروول Sophos لمواكبة أحدث تقنيات الحماية والفلترة.</span>
+                        <span class="en">Applying highly secure and high-performance updates to the Sophos Firewall to keep pace with the latest protection and filtering technologies.</span>
+                    </p>
                 </div>
             </div>
         </div>
