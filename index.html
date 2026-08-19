@@ -6,7 +6,6 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>Rotabiogen | Technical Achievements</title>
     
     <!-- Prevent Auto-Translation -->
     <meta name="google" content="notranslate" />
@@ -38,11 +37,15 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Cairo', 'Inter', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-light);
-            overflow-x: hidden;
             line-height: 1.7;
             width: 100%;
         }
@@ -296,8 +299,10 @@
                 text-align: center !important;
                 padding: 25px 15px;
                 gap: 15px;
+                width: 100%; /* Added to fix mobile width */
+                max-width: 100%; /* Added to fix mobile width */
             }
-            .profile-info, html[lang="en"] .profile-info { text-align: center !important; }
+            .profile-info, html[lang="en"] .profile-info { text-align: center !important; width: 100%; min-width: 0; }
             .profile-title { justify-content: center !important; flex-wrap: wrap; }
             .contact-links { justify-content: center !important; gap: 10px 15px; }
             
@@ -751,6 +756,14 @@
             // Refresh AOS to handle layout changes
             setTimeout(() => { AOS.refresh(); }, 100);
         }
+
+        // Force browser to recalculate layout after full load (Fixes mobile initial load bug)
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.dispatchEvent(new Event('resize'));
+                AOS.refresh();
+            }, 500);
+        });
     </script>
 </body>
 </html>
