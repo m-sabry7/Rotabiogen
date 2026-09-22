@@ -299,8 +299,8 @@
                 text-align: center !important;
                 padding: 25px 15px;
                 gap: 15px;
-                width: 100%; /* Added to fix mobile width */
-                max-width: 100%; /* Added to fix mobile width */
+                width: 100%;
+                max-width: 100%;
             }
             .profile-info, html[lang="en"] .profile-info { text-align: center !important; width: 100%; min-width: 0; }
             .profile-title { justify-content: center !important; flex-wrap: wrap; }
@@ -390,8 +390,8 @@
             <span class="en">Inherited <span>State</span> at the Beginning</span>
         </h2>
         <p class="section-desc" data-aos="fade-up" data-aos-delay="100">
-            <span class="ar">عند بدء أعمال التطوير، تم تحديد عدد من التحديات التشغيلية والفنية التي تطلبت إعادة تنظيم وتطوير البيئة. مما استدعى تدخلاً هيكلياً لضمان استمرارية الأعمال والأمان.</span>
-            <span class="en">At the beginning of the development work, several operational and technical challenges were identified that required reorganization and environment development. necessitating structural intervention to ensure business continuity and security.</span>
+            <span class="ar">عند بدء أعمال التطوير، تم تحديد عدد من التحديات التشغيلية والفنية التي تطلبت إعادة تنظيم وتطوير البيئة، مما استدعى تدخلاً هيكلياً لضمان استمرارية الأعمال والأمان.</span>
+            <span class="en">At the beginning of the development work, several operational and technical challenges were identified that required reorganization and environment development, necessitating structural intervention to ensure business continuity and security.</span>
         </p>
         <div class="issues-grid">
             <div class="issue-item" data-aos="fade-left"><i class="fa-solid fa-link-slash"></i> <span class="ar">اتصال يدوي ومتقطع بسيرفرات SAP</span><span class="en">Manual and intermittent SAP server connection</span></div>
@@ -420,24 +420,24 @@
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-shield-virus"></i></div>
                         <div class="project-title">
-                            <h3>01 - NETWORK & SECURITY TRANSFORMATION</h3>
-                            <h2><span class="ar">بناء وتكوين Sophos Firewall</span><span class="en">Building Advanced Sophos Firewall</span></h2>
+                            <h3>01 - NETWORK SECURITY & ADMINISTRATION</h3>
+                            <h2><span class="ar">بناء وتكوين Sophos Firewall</span><span class="en">Building & Configuring Sophos Firewall</span></h2>
                         </div>
                     </div>
                     <div class="impact-tag">
                         <i class="fa-solid fa-chart-simple"></i>
-                        <span class="ar">+400 مستخدم | 6 خطوط إنترنت | Web/App Filtering</span>
-                        <span class="en">400+ Users | 6 Internet Lines | Web/App Filtering</span>
+                        <span class="ar">+400 مستخدم | 6 خطوط إنترنت | Web/App Filtering & SLA Monitoring</span>
+                        <span class="en">400+ Users | 6 Internet Lines | Web/App Filtering & SLA Monitoring</span>
                     </div>
                     <ul class="project-list">
-                        <li><span class="ar">بناء الفايروول من الصفر بعد سقوط النظام السابق، لخدمة أكثر من 400 مستخدم</span><span class="en">Built the firewall from scratch after the failure of the previous system, to serve 400+ users</span></li>
-                        <li><span class="ar">تطبيق السياسات الأمنية (Security Policies) شاملة الحماية، وفلترة الويب والتطبيقات (Web/App Filtering)</span><span class="en">Applied comprehensive Security Policies, including Web and Application Filtering</span></li>
-                        <li><span class="ar">تفعيل نظام Captive Portal لمصادقة المستخدمين (User Authentication) قبل الوصول للشبكة</span><span class="en">Enabled Captive Portal for User Authentication prior to network access</span></li>
-                        <li><span class="ar">إعداد SD-WAN Profiles لمراقبة أداء خطوط الإنترنت الستة وتوجيه الترافيك بكفاءة</span><span class="en">Configured SD-WAN Profiles to monitor the performance of the six internet lines and route traffic efficiently</span></li>
+                        <li><span class="ar">إعادة بناء بيئة Sophos Firewall من الصفر بعد سقوط النظام القديم لتأمين وحماية أكثر من 400 مستخدم</span><span class="en">Rebuilt the Sophos Firewall environment from scratch following a legacy outage to secure 400+ users</span></li>
+                        <li><span class="ar">تطبيق سياسات الحماية الشاملة، فلترة الويب والتطبيقات (Web/App Filtering)، وتفعيل نظام Captive Portal لمصادقة المستخدمين</span><span class="en">Implemented comprehensive security policies, Web/App Filtering, and Captive Portal user authentication</span></li>
+                        <li><span class="ar">إنشاء SD-WAN Performance Profiles لمراقبة أداء خطوط الإنترنت الستة لحظياً وقراءة مقاييس جودة الخدمة (SLA Metrics: Latency, Jitter, Packet Loss)</span><span class="en">Configured SD-WAN Performance Profiles to actively monitor SLA metrics across 6 WAN lines in real time</span></li>
+                        <li><span class="ar">إعداد وتخصيص خط Leased Line لتأمين الوصول الخارجي عبر Remote Access VPN</span><span class="en">Dedicated a Leased Line for secure Remote Access VPN connectivity</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">تحسين جوهري في مستوى أمان الشبكة، مع سيطرة فعالة على التطبيقات المستخدمة وتوزيع كفء للأحمال على خطوط الإنترنت.</span><span class="en">A fundamental improvement in network security, with effective application control and efficient load distribution across internet lines.</span></p>
+                        <p><span class="ar">تحسين جوهري في مستوى أمان الشبكة، مع سيطرة فعالة على التطبيقات، وتوزيع كفء للأحمال، ومراقبة لحظية لاستقرار خطوط الإنترنت.</span><span class="en">Fundamental improvement in network security with effective application control, balanced traffic, and real-time SLA link monitoring.</span></p>
                     </div>
                 </div>
             </div>
@@ -449,23 +449,24 @@
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-sitemap"></i></div>
                         <div class="project-title">
-                            <h3>02 - NETWORK ARCHITECTURE</h3>
-                            <h2><span class="ar">إعادة هيكلة البنية التحتية (Network Layers)</span><span class="en">Network Infrastructure Restructuring (Layers)</span></h2>
+                            <h3>02 - NETWORK ARCHITECTURE & MULTI-TIER WAN</h3>
+                            <h2><span class="ar">إعادة هيكلة البنية التحتية وعزل طبقات الشبكة</span><span class="en">Network Infrastructure Restructuring & Layer Isolation</span></h2>
                         </div>
                     </div>
                     <div class="impact-tag">
                         <i class="fa-solid fa-layer-group"></i>
-                        <span class="ar">عزل طبقات الشبكة | تقليل الاختناقات</span>
-                        <span class="en">Network Layer Isolation | Bottleneck Reduction</span>
+                        <span class="ar">Physical & Logical Isolation | Multi-Tier WAN Topology | Failover Redundancy</span>
+                        <span class="en">Physical & Logical Isolation | Multi-Tier WAN Topology | Failover Redundancy</span>
                     </div>
                     <ul class="project-list">
-                        <li><span class="ar">عزل المكونات الأساسية (الفايروول، اللود بالانسر، الراوترات، وجهاز Meraki للربط)</span><span class="en">Isolated core components (Firewall, Load Balancer, Routers, and Meraki bridge)</span></li>
-                        <li><span class="ar">ترتيب المكونات في طبقات منطقية (Network Layers) لضمان مسار بيانات آمن</span><span class="en">Arranged components into logical Network Layers to ensure secure data paths</span></li>
-                        <li><span class="ar">معالجة التداخل الفيزيائي الذي كان يسبب رفعًا عشوائيًا للترافيك وتخطي حماية الشبكة</span><span class="en">Resolved physical interference that caused random traffic spikes and security bypasses</span></li>
+                        <li><span class="ar">إعادة توزيع وتنسيق المكونات الأساسية (Sophos, pfSense, MikroTik, Switches, Meraki) في طبقات مستقلة لمنع تخطي الحماية</span><span class="en">Separated core network components into independent layers to prevent security bypassing</span></li>
+                        <li><span class="ar">إنهاء التوصيلات العشوائية والتداخل الفيزيائي بين الـ Switches والراوترات لمنع ارتفاع الترافيك والاختناقات المرورية</span><span class="en">Eliminated physical loops and chaotic cabling that previously caused traffic spikes and bandwidth bottlenecks</span></li>
+                        <li><span class="ar">هيكلة pfSense كموزع أحمال رئيسي وتكامل راوتر MikroTik كـ Backup Load Balancer لضمان استمرارية الخدمة (Failover)</span><span class="en">Architected a dual-tier load balancing system with pfSense as primary and MikroTik as backup for failover redundancy</span></li>
+                        <li><span class="ar">ضبط التوجيه (Static Routing) عبر جهاز Cisco Meraki المخصص لربط المكتب العلمي، مما ضمن مسار بيانات مباشر ومستقر لسيرفرات SAP ERP</span><span class="en">Configured static routing via Cisco Meraki to route dedicated SAP ERP traffic cleanly to the scientific office</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">تقليل العشوائية والاختناقات المرورية، ورفع مستوى الأمان وسهولة التوسع المستقبلي.</span><span class="en">Reduced randomness and traffic bottlenecks, elevating security and ensuring future scalability.</span></p>
+                        <p><span class="ar">القضاء على العشوائية وارتفاع الترافيك المفاجئ، تأمين استقرار تام للاتصال بسيرفرات SAP ERP، ورفع كفاءة الشبكة وسهولة التوسع.</span><span class="en">Eliminated random traffic spikes, secured stable SAP ERP access, and elevated overall operational scalability.</span></p>
                     </div>
                 </div>
             </div>
@@ -488,7 +489,8 @@
                     </div>
                     <ul class="project-list">
                         <li><span class="ar">تجهيز خادم HPE ProLiant DL380 Gen9 بنظام تخزين RAID1 لزيادة موثوقية التخزين</span><span class="en">Prepared an HPE ProLiant DL380 Gen9 server with RAID1 storage to increase storage reliability</span></li>
-                        <li><span class="ar">بناء منصة افتراضية (Proxmox VE) مستقرة لاستيعاب الخوادم الحرجة</span><span class="en">Built a stable virtualization platform (Proxmox VE) to host critical servers</span></li>
+                        <li><span class="ar">بناء منصة افتراضية (Proxmox VE) مستقرة لاستيعاب الخوادم والخدمات الحرجة</span><span class="en">Built a stable virtualization platform (Proxmox VE) to host critical servers and services</span></li>
+                        <li><span class="ar">نشر وإعداد Veeam Backup لتوفير طبقة نسخ احتياطي مستقلة وضمان استعادة البيانات</span><span class="en">Deployed Veeam Backup to establish an independent backup layer and ensure fast disaster recovery</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
@@ -504,23 +506,23 @@
                     <div class="project-header">
                         <div class="project-icon"><i class="fa-solid fa-folder-tree"></i></div>
                         <div class="project-title">
-                            <h3>04 - FILE SERVICES</h3>
-                            <h2><span class="ar">تطوير سيرفر الشير وسعة التخزين</span><span class="en">File Share Server & Storage Capacity Development</span></h2>
+                            <h3>04 - FILE SERVICES CONSOLIDATION</h3>
+                            <h2><span class="ar">دمج سيرفرات الملفات وتطوير التخزين</span><span class="en">File Servers Consolidation & Storage Expansion</span></h2>
                         </div>
                     </div>
                     <div class="impact-tag">
                         <i class="fa-solid fa-database"></i>
-                        <span class="ar">18 TB Storage | 3× السعة | Unified File Sharing</span>
-                        <span class="en">18 TB Storage | 3× Capacity | Unified File Sharing</span>
+                        <span class="ar">18 TB Storage | 3× السعة | Full Permissions Transfer</span>
+                        <span class="en">18 TB Storage | 3× Capacity | Full Permissions Transfer</span>
                     </div>
                     <ul class="project-list">
-                        <li><span class="ar">ترحيل سيرفر الشير بالكامل إلى بيئة Proxmox بأمان تام دون فقد أي بيانات</span><span class="en">Migrated the File Share server entirely to Proxmox safely with zero data loss</span></li>
-                        <li><span class="ar">زيادة مساحة التخزين من 6TB إلى 18TB (ثلاثة أضعاف) لمعالجة المشاكل التشغيلية السابقة</span><span class="en">Expanded storage capacity from 6TB to 18TB (3x) to resolve previous operational issues</span></li>
-                        <li><span class="ar">نقل الملفات من سيرفر Ubuntu إلى سيرفر الملفات (File Share) الجديد في بيئة افتراضية موحدة</span><span class="en">Transferred files from an Ubuntu server to the new File Share server in a unified virtual environment</span></li>
+                        <li><span class="ar">دمج خادمي الملفات المنفصلين (Windows File Server & Ubuntu) في خادم افتراضي موحد على بيئة Proxmox VE</span><span class="en">Consolidated two separate legacy file servers (Windows & Ubuntu) into a single unified File Server on Proxmox VE</span></li>
+                        <li><span class="ar">ترحيل البيانات بالكامل مع الحفاظ التام على شجرة المجلدات وهيكلية الصلاحيات والأذونات (NTFS/Share Permissions) دون فقد أي بيانات أو انقطاع للخدمة</span><span class="en">Migrated all files while preserving full folder directory structures and permissions (NTFS/Share) with zero data loss or downtime</span></li>
+                        <li><span class="ar">زيادة سعة التخزين ثلاثة أضعاف من 6TB إلى 18TB لمعالجة الاختناقات التشغيلية السابقة</span><span class="en">Expanded storage capacity threefold from 6TB to 18TB to eliminate historical operational bottlenecks</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">زيادة ملحوظة في سرعة الوصول للملفات، تحسين الاستقرار، وتقليل الأعطال المتكررة المرتبطة بالتخزين.</span><span class="en">Noticeable increase in file access speed, improved stability, and reduction in recurring storage-related incidents.</span></p>
+                        <p><span class="ar">زيادة ملحوظة في سرعة الوصول للملفات، تحسين الاستقرار، توحيد الإدارة، وتقليل الأعطال المتكررة المرتبطة بالتخزين.</span><span class="en">Significant boost in file access speed, improved stability, unified management, and reduction in recurring storage incidents.</span></p>
                     </div>
                 </div>
             </div>
@@ -543,7 +545,7 @@
                     </div>
                     <ul class="project-list">
                         <li><span class="ar">إعداد خادم Domain Controller إضافي (Additional DC) لتوفير التسامح مع الأخطاء واستمرارية المصادقة</span><span class="en">Set up an Additional Domain Controller (ADC) to provide fault tolerance and authentication continuity</span></li>
-                        <li><span class="ar">توحيد الخدمات في خادم مركزي (Services Server) لاستضافة Omada, UniFi, و ManageEngine</span><span class="en">Consolidated services into a central Services Server to host Omada, UniFi, and ManageEngine</span></li>
+                        <li><span class="ar">توحيد الأنظمة الإدارية في خادم مركزي (Services Server) لاستضافة أنظمة ManageEngine, Omada, و UniFi</span><span class="en">Consolidated administrative systems into a central Services Server hosting ManageEngine, Omada, and UniFi</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
@@ -565,17 +567,17 @@
                     </div>
                     <div class="impact-tag">
                         <i class="fa-solid fa-wifi"></i>
-                        <span class="ar">10 Omada APs | 5 UniFi APs | إدارة مركزية</span>
-                        <span class="en">10 Omada APs | 5 UniFi APs | Centralized Management</span>
+                        <span class="ar">15 Omada APs | 5 UniFi APs | إدارة مركزية</span>
+                        <span class="en">15 Omada APs | 5 UniFi APs | Centralized Management</span>
                     </div>
                     <ul class="project-list">
-                        <li><span class="ar">تركيب 10 أجهزة Access Points من سلسلة TP-Link Omada وبناء الكنترولر الخاص بها</span><span class="en">Installed 10 TP-Link Omada series Access Points and built their dedicated controller</span></li>
-                        <li><span class="ar">إعادة إعداد 5 أجهزة UniFi Access Points القديمة ضمن كنترولر UniFi موحد</span><span class="en">Reconfigured 5 legacy UniFi Access Points within a unified UniFi Controller</span></li>
-                        <li><span class="ar">توفير نظام موحد للمراقبة المركزية (Centralized Monitoring) لأداء الشبكة اللاسلكية</span><span class="en">Provided a unified system for Centralized Monitoring of wireless network performance</span></li>
+                        <li><span class="ar">تركيب 15 جهاز Access Point من سلسلة TP-Link Omada وبناء الكنترولر المركزي الخاص بها</span><span class="en">Installed 15 TP-Link Omada series Access Points and built their dedicated central controller</span></li>
+                        <li><span class="ar">إعادة إعداد 5 أجهزة UniFi Access Points القديمة وربطها ضمن كنترولر UniFi موحد</span><span class="en">Reconfigured 5 legacy UniFi Access Points and integrated them into a unified UniFi Controller</span></li>
+                        <li><span class="ar">توفير نظام موحد للمراقبة المركزية (Centralized Monitoring) لإدارة التغطية وسياسات الوصول</span><span class="en">Provided a unified system for Centralized Monitoring to manage coverage and user access policies</span></li>
                     </ul>
                     <div class="result-box">
                         <i class="fa-solid fa-circle-check"></i>
-                        <p><span class="ar">إدارة احترافية موحدة للشبكة اللاسلكية، ومتابعة الأداء والأعطال بشكل مركزي وسريع.</span><span class="en">Professional unified wireless network management, with centralized and rapid fault monitoring.</span></p>
+                        <p><span class="ar">إدارة احترافية موحدة لـ 20 نقطة وصول لاسلكية، ومتابعة الأداء والأعطال بشكل مركزي وسريع.</span><span class="en">Professional unified wireless management across 20 access points with centralized fault monitoring.</span></p>
                     </div>
                 </div>
             </div>
@@ -601,14 +603,14 @@
                             <h4><i class="fa-solid fa-car-battery"></i> <span class="ar">UPS الطاقة</span><span class="en">Power UPS</span></h4>
                             <ul class="project-list">
                                 <li><span class="ar">انقطاع الكهرباء المتكرر كان يعرض السيرفرات لمشاكل فنية</span><span class="en">Frequent power outages exposed servers to technical issues</span></li>
-                                <li><span class="ar">تركيب UPS مخصص وتوصيل جميع الأجهزة عليه لمنع الإغلاق المفاجئ</span><span class="en">Installed a dedicated UPS and connected all devices to prevent sudden shutdowns</span></li>
+                                <li><span class="ar">ترقية وتوصيل نظام UPS مخصص لجميع الخوادم لمنع الإغلاق المفاجئ</span><span class="en">Upgraded and connected dedicated UPS to all servers to prevent sudden shutdowns</span></li>
                             </ul>
                         </div>
                         <div class="sub-card">
                             <h4><i class="fa-solid fa-snowflake"></i> <span class="ar">التبريد</span><span class="en">Cooling</span></h4>
                             <ul class="project-list">
                                 <li><span class="ar">ارتفاع درجة حرارة غرفة الداتا سنتر بشكل متكرر</span><span class="en">Frequent high temperatures in the Data Center room</span></li>
-                                <li><span class="ar">تركيب تكييف مخصص للحفاظ على درجة حرارة آمنة (HVAC)</span><span class="en">Installed dedicated AC to maintain safe HVAC temperatures</span></li>
+                                <li><span class="ar">ضبط وتحسين أنظمة التبريد والتكييف المخصص للحفاظ على درجة حرارة آمنة (HVAC)</span><span class="en">Optimized dedicated cooling AC systems to maintain safe HVAC temperatures</span></li>
                             </ul>
                         </div>
                     </div>
@@ -632,12 +634,12 @@
                     </div>
                     <div class="impact-tag">
                         <i class="fa-solid fa-book-open"></i>
-                        <span class="ar">حصر كامل للبنية التحتية | قاعدة معرفية حية</span>
-                        <span class="en">Full Infrastructure Audit | Living Knowledge Base</span>
+                        <span class="ar">حصر كامل للبنية التحتية | SOPs & Living Knowledge Base</span>
+                        <span class="en">Full Infrastructure Audit | SOPs & Living Knowledge Base</span>
                     </div>
                     <ul class="project-list">
                         <li><span class="ar">حصر مكونات الشبكة والخوادم والخدمات، وتحليل ترابطها الفيزيائي والمنطقي</span><span class="en">Inventoried network components, servers, and services, analyzing physical and logical interdependencies</span></li>
-                        <li><span class="ar">بناء قاعدة معرفية شاملة (Knowledge Base) لدعم الإدارة واتخاذ القرارات الفنية</span><span class="en">Built a comprehensive Knowledge Base to support management and data-driven technical decisions</span></li>
+                        <li><span class="ar">وضع إجراءات التشغيل القياسية (SOPs) وبناء قاعدة معرفية شاملة (Knowledge Base) لدعم اتخاذ القرارات الفنية</span><span class="en">Established Standard Operating Procedures (SOPs) and built a comprehensive Knowledge Base</span></li>
                         <li><span class="ar">اعتماد التوثيق كممارسة مستمرة ضمن كل مشروع تطوير لاحق</span><span class="en">Adopted documentation as a continuous practice within all subsequent development projects</span></li>
                     </ul>
                     <div class="result-box">
@@ -669,7 +671,7 @@
                 <i class="fa-solid fa-database" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
             </div>
             <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="stat-number">15</div>
+                <div class="stat-number">20</div>
                 <div class="stat-text"><span class="ar">نقطة وصول لاسلكية موحدة</span><span class="en">Unified Wireless Access Points</span></div>
                 <i class="fa-solid fa-wifi" style="color:var(--brand-purple); font-size:2rem; margin-top:10px;"></i>
             </div>
